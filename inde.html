@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Тест</title>
+  <style>
+    @import url("shura.css");
+    @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+  #form {
+           display: none;
+           text-align: center;
+        }
+
+
+</style>
+</head>
+<body>
+
+  <!-- На случай мап-инга -->
+  <div class="cards">
+    <!-- Блок -->
+      <form id="form">
+        <input type="text" placeholder="Имя" id="user_name">
+        <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="PHONE" id="user_phone">
+        <button id="order">оформить</button>
+      </form>
+  </div>
+
+  <!-- На случай мап-инга -->
+  <div id="main" class="cards">
+    <!-- Блок -->
+
+    <button id="buy">Купит</button>
+    <div class="cards__card">
+      <!-- Шапка -->
+      <div class="cards__card__header">
+        <a>Отмена</a>
+        <a>Какой то текст</a>
+        <!-- типа меню -->
+        <div>...</div>
+      </div>
+      <!-- Тело -->
+      <div class="cards__card__body">
+        <img
+          class="cards__card__body__img"
+          src="android icon.png"
+          alt="Картинка"
+        />
+      </div>
+      <!-- Футер -->
+      <div class="cards__card__futter">
+        <button class="cards__card__futter__button">-</button>
+        <a class="cards__card__futter__text">123</a>
+        <button class="cards__card__futter__button">+</button>
+      </div>
+    </div>
+
+
+    <div class="cards__card">
+        <!-- Шапка -->
+        <div class="cards__card__header">
+          <a>Отмена</a>
+          <a>Какой то текст</a>
+          <!-- типа меню -->
+          <div>...</div>
+        </div>
+  
+        <!-- Тело -->
+        <div class="cards__card__body">
+          <img
+            class="cards__card__body__img"
+            src="android icon.png"
+            alt="Картинка"
+          />
+        </div>
+  
+        <!-- Футер -->
+        <div class="cards__card__futter">
+          <button class="cards__card__futter__button">-</button>
+          <a class="cards__card__futter__text">123</a>
+          <button class="cards__card__futter__button">+</button>
+        </div>
+      </div>
+
+
+  </div>
+
+
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    let tg = window.Telegram.WebApp;
+    let buy = document.getElementById("buy");
+    let order = document.getElementById("order");
+
+    buy.addEventListener("click", () => {
+      document.getElementById("main").style.display = "none";
+      document.getElementById("form").style.display = "block";
+      document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
+    });
+
+    order.addEventListener("click", () => {
+      tg.close();
+    });
+
+  </script>
+</body>
+</html>
